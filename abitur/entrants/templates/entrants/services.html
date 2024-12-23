@@ -1,0 +1,23 @@
+{% extends 'entrants/base.html' %}
+{% load entrants_tags %}
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'entrants/css/services.css' %}">
+    <div class="services">
+        <ul>
+            {% for p in posts %}
+            <li class="post-item">
+                {% if p.photo %}
+                <div class="post-image">
+                    <img src="{{ p.photo.url }}" alt="{{ p.title }}">
+                </div>
+                {% endif %}
+                <div class="post-content">
+                    <h3>{{ p.title }}</h3>
+                    <p>{{ p.content }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

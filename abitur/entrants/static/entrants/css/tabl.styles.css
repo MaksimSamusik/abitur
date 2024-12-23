@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+body {
+    margin: 0;
+    background: #F4F1F8;
+  }
+  table {
+    border-collapse: collapse; 
+    line-height: 1.1;
+    font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+  }
+ 
+  td {
+    font-size: 0.8em;
+    padding: 5px 7px;
+    border: 1px solid #000000;
+  }

@@ -1,0 +1,49 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'entrants/css/profile_page.css' %}">
+    <link rel="icon" href="{% static 'entrants/images/logo.png'%}" type="image/x-icon">
+    <title>Профиль</title>
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <div class="sidebar">
+            <img id="avatar" src="{% static 'entrants/images/logo.png' %}" alt="User Avatar" onclick="changeAvatar()">
+            <p id="username">Имя пользователя: {{ user.username }}</p>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'profile' %}"><b>Главная</b></a></li>
+                    <li><a href="{% url 'declaration' %}"><b>Заявления</b></a></li>
+                    <li><a href="{% url 'main' %}"><b>Назад</b></a></li>
+                    <!-- Добавьте дополнительные пункты меню по мере необходимости -->
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+            <div class="profile-container">
+                <p id="time"><strong>Дата регистрации:</strong> {{ user.date_joined }} </p>
+                <p id="email"><strong>Электронная почта:</strong> {{ user.email }} </p>
+                {% if applications %}
+                    {% for application in applications %}
+
+                            <p><strong>ФИО:</strong> {{ application.name }}</p>
+                            <p><strong>Специальность:</strong> {{ application.specialization }}</p>
+                            <p><strong>Общий балл:</strong> {{ application.overall_rating }}</p>
+
+                    {% endfor %}
+                    {% else %}
+                    {% if not request.session.application_submitted %}
+                        <a href="{% url 'send'%}"><button> Подать заявление</button></a>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endblock content%}
+</body>
+</html>

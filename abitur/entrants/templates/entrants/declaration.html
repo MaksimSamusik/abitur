@@ -1,0 +1,51 @@
+{% extends 'entrants/profile.html' %}
+{% load static%}
+{% block content%}
+    <div class="container">
+        <div class="sidebar">
+            <img id="avatar" src="{% static 'entrants/images/Logo.png' %}" alt="User Avatar" onclick="changeAvatar()">
+            <p id="username">Имя пользователя: {{ user.username }}</p>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'profile' %}">Главная</a></li>
+                    <li><a href="{% url 'declaration' %}">Заявления</a></li>
+                    <li><a href="{% url 'main' %}">Назад</a></li>
+                    <!-- Добавьте дополнительные пункты меню по мере необходимости -->
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+            <div class="profile-container">
+                {% if applications %}
+                    {% for application in applications %}
+
+                            <p><strong>ФИО:</strong> {{ application.name }}</p>
+                            <p><strong>Электронная почта:</strong> {{ application.email }}</p>
+                            <p><strong>Номер телефона:</strong> {{ application.phone_number }}</p>
+                            <p><strong>Серия паспорта:</strong> {{ application.passport_series }}</p>
+                            <p><strong>Номер паспорта:</strong> {{ application.passport_number }}</p>
+                            <p><strong>Балл аттестата:</strong> {{ application.rating }}</p>
+                            {% if application.physics%}
+                                <p><strong>Физика:</strong> {{ application.physics }}</p>
+                            {% else %}
+
+                            <p><strong>{{ application.foreign_language }}:</strong> {{ application.language }}</p>
+                            {% endif %}
+                            <p><strong>Математика:</strong> {{ application.math }}</p>
+                            <p><strong>Русский/белорусский:</strong> {{ application.ru_by }}</p>
+                            <p><strong>Общий балл:</strong> {{ application.overall_rating }}</p>
+                            <p><strong>Специальность:</strong> {{ application.specialization }}</p>
+                    {% endfor %}
+                {% else %}
+                    <h2>Вы еще не подавали заявление</h2>
+                    {% if not request.session.application_submitted %}
+                        <a href="{% url 'send'%}"><button> Подать заявление</button></a>
+                    {% endif %}
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+{% endblock content%}

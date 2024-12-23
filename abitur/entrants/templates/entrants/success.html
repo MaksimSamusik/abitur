@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявление успешно создано</title>
+    <link rel="icon" href="{% static 'entrants/images/logo.png'%}" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Добавлено для центрирования по вертикали */
+            min-height: 100vh;
+            background: linear-gradient(to bottom, white, #008a5e);
+        }
+
+        .success-container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #008a5e;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="success-container">
+        <h2>Заявление успешно создано!</h2>
+        <p>Спасибо за ваш запрос. Мы получили ваше заявление и обрабатываем его. Ожидайте подтверждения.</p>
+        <p><a href="{% url 'profile'%}"> Перейти в профиль</a></p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+/* profile_page.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(white, #008a5e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Минимальная высота всего экрана */
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto; /* Уберем верхний и нижний отступ для центрирования */
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#username {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #4caf50;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container .profile-container {
+    padding: 20px;
+}
+
+.container .profile-container p {
+    margin: 10px 0;
+}
+
+.container .profile-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.container .profile-container ul li {
+    margin-bottom: 15px;
+}
+
+.container .profile-container button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.container .profile-container button:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'entrants/css/style.css' %}">
+    <link rel="stylesheet" href="font.awesome/">
+    <script src="{% static 'entrants/js/main.js' %}" defer></script>
+    <script src="https://kit.fontawesome.com/4d7eeeb0a3.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{% static 'entrants/images/logo.png'%}" type="image/x-icon">
+    <title>{{title}}</title>
+</head>
+<body>
+    <header class="main-header out">
+
+        <div class="logo"> <a href="https://bntu.by/"> <img src="{% static 'entrants/images/logo.png' %}"> </a> </div>
+        <nav>
+          <div class="hamburger"></div>
+
+          <ul class="main-nav main-nav-mob">
+
+            <li class="nav-item"><a href="{% url 'main' %}">Главная</a></li>
+            <li class="nav-item"><a href="#">Поступление</a>
+                <div class="drop">
+                    <a href="{% url 'passing_grades' %}">Проходные баллы</a>
+                    <a href="{% url 'open_day' %}">Дни открытых дверей</a>
+                </div></li>
+            <li class="nav-item"><a href="#">Подготовка к цт</a>
+                <div class="drop">
+                    <a href="{% url 'services' %}">Наши услуги</a>
+                    <a href="{% url 'reg_rt' %}">Регистрация на РТ</a>
+                    <a href="{% url 'ct' %}">Выдача сертификатов на ЦТ</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="#">Профтестирование</a>
+                <div class="drop">
+                    <a href="{% url 'diagnostics' %}">Профориентационная диагностика</a>
+                </div>
+            </li>
+            {% if request.user.is_authenticated %}
+              <li class="nav-item"> <a href="{% url 'profile' %}">{{ user.username }}</a></li>
+            <li class="nav-item"><a href="{% url 'logout' %}">Выйти </a></li>
+            {% else %}
+            <li class="nav-item"><a href="{% url 'login' %}">Вход </a></li>
+            <li class="nav-item"><a href="{% url 'registration' %}">Регистрация</a></li>
+            {% endif %}
+
+          </ul>
+        </nav>
+      </header>
+
+    <img src="{% static 'entrants/images/headerimage.jpg' %}" alt="кампус" width="100%">
+
+    {% block content %}
+
+    {% endblock content%}
+
+    <div class="contactsandmap">
+        <table width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+            <td class="map">
+
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9aaf3dac7e4cadaf2930c7c9a17e0550951881a625ea5492af022e4c909c2713&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+    </td>
+    <td class="contacts">
+        <div class="contacts">
+             <h2>Контакты</h2>
+        <ul class="contact-list">
+          <li class="list-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span class="contact-text place">  Республика Беларусь, Минск</span>
+          </li>
+          <li class="list-item">
+            <i class="fa-solid fa-phone"></i>
+            <span class="contact-text phone"> <a href="tel:8(017)292-10-12">  8(017)292-10-12</a></span>
+          </li>
+          <li class="list-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="contact-text gmail"> <a href="mailto:bntu@bntu.by">  bntu@bntu.by</a></span>
+          </li>
+        </ul>
+        <div class="container">
+            <div class="row">
+            <br/><br/>
+            <div class="col-md-12">
+        <a href="https://www.facebook.com/bntu.by/" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.instagram.com/bntu/" target="_blank" class="btn-social btn-instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://by.linkedin.com/school/bntuby" target="_blank" class="btn-social btn-linkedin"><i class="fa fa-linkedin"></i></a>
+        <a href="https://vk.com/bntuby" target="_blank" class="btn-social btn-vk"><i class="fa fa-vk"></i></a>
+        <a href="https://www.youtube.com/@bntuby/videos" target="_blank" class="btn-social btn-youtube"><i class="fa fa-youtube"></i></a>
+    </div>
+</div>
+</div>
+      </div>
+    </div>
+
+
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

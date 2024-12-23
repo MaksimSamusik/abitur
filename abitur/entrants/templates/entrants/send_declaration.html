@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отправка заявления</title>
+    <link rel="stylesheet" href="{% static 'entrants/css/send.css' %}">
+    <script src="{% static 'entrants/js/modal.js' %}"></script>
+    <script src="{% static 'entrants/js/sum.js' %}"></script>
+    <link rel="icon" href="{% static 'entrants/images/logo.png' %}" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="https://bntu.by/">
+                <img src="{% static 'entrants/images/logo.png' %}" alt="Логотип">
+            </a>
+        </div>
+    </header>
+
+    <div id="modalOverlay">
+        <div id="modal">
+            <div id="modalContent">
+                <h2>Здравствуйте, мы очень рады, что вы выбрали именно нас!</h2>
+                <h3>Перед заполнением заявления хотим, чтобы вы обратили внимание на следующие вещи:</h3>
+            </div>
+            <ol>
+                <li>Отнеситесь к заполнению серьезно, от этого, возможно, зависит ваше будущее</li>
+                <li>Если вы не сдавали ЦЭ\ЦТ по одному из предметов, оставьте значение "0"</li>
+                <li>Отнеситесь ответственно к выбору специальности, с ними можно ознакомиться <b><a href="https://i.bntu.by/#specialities">тут</a></b></li>
+                <li>Выбирайте специальность ЦЭ\ЦТ, которой совпадают с вашими, свериться можно <b><a href="http://priem.bntu.by/ru/pk/rulesNext/">тут</a></b></li>
+            </ol>
+            <button id="closeBtn">Начать</button>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Подача заявления </h2>
+        {{ form.media }}
+        <form action="{% url 'send' %}" method="post">
+            {% csrf_token %}
+            <div class="form-error">{{ form.non_field_errors }}</div>
+            {% for f in form %}
+            <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }} </p>
+            <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <button type="submit">Отправить заявление</button>
+        </form>
+    </div>
+
+</body>
+</html>

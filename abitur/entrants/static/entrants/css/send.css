@@ -1,0 +1,129 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, white, #008a5e);
+}
+
+header {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    margin-bottom: 5px;
+}
+
+.logo img {
+    max-width: 7%; /* Make the logo responsive */
+}
+
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+h2, h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    text-align: left;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #4caf50;
+}
+
+button {
+    background-color: #008a5e;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 16px;
+    display: block;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#modalOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+#modal {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left; /* Изменено с "center" на "left" */
+}
+
+#modalContent {
+    text-align: center;
+}
+#modal ol li {
+    margin-left: 80px;
+    margin-bottom: 10px;
+}
+#closeBtn {
+    background-color: #008a5e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.form-error{
+    text-align: left;
+    color: red;
+}
+
